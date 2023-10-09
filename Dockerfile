@@ -19,7 +19,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | b
 WORKDIR /usr/src/app
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
-RUN python -m venv pilot-env
+RUN rm -rf /usr/src/app/pilot-env && python -m venv pilot-env
 RUN /bin/bash -c "source pilot-env/bin/activate"
 
 RUN pip install -r requirements.txt
